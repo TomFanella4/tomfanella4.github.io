@@ -1,43 +1,46 @@
 import React, { Component } from 'react';
-import ReactCardFlip from 'react-card-flip';
-import './App.css';
+import ResumeCard from './ResumeCard';
 
 class App extends Component {
-  state = {
-    isFlipped: false
-  }
 
-  handleToggleFlip(e) {
-    e.preventDefault();
-    this.setState({ isFlipped: !this.state.isFlipped });
+  resumeCards = {
+    meetover: {
+      title: 'MeetOver',
+      subtitle: 'Connecting Professionals on the Fly',
+      text: 'A project about improving a persons networking skills',
+      link: 'https://github.com/TomFanella4/meetover',
+      image: process.env.PUBLIC_URL + '/img/map.jpg',
+      height: 353,
+      width: 200
+    },
+    songwars: {
+      title: 'Song Wars',
+      subtitle: 'Songs battle for superiority!',
+      text: 'This project encourages people to listen to lesser known songs and compare them to pop songs',
+      link: 'https://github.com/TomFanella4/song-wars',
+      image: process.env.PUBLIC_URL + '/img/songwars.jpg',
+      height: 192,
+      width: 400
+    },
+    degrees: {
+      title: 'Degrees of Separation',
+      subtitle: 'Get Connected',
+      text: 'With this app you can view the friend-of-a-friend list of connections between two musicians',
+      link: 'https://github.com/mpace965/degrees-of-separation',
+      image: process.env.PUBLIC_URL + '/img/degrees.jpg',
+      height: 192,
+      width: 400
+    },
   }
 
   render() {
     return (
-      <div style={styles.container}>
-        <ReactCardFlip isFlipped={this.state.isFlipped}>
-          <div style={styles.card} key='front' onMouseEnter={(e) => this.handleToggleFlip(e)}>
-            This is the front of the card.
-          </div>
-
-          <div style={styles.card} key='back' onMouseLeave={(e) => this.handleToggleFlip(e)}>
-            This is the back of the card.
-          </div>
-        </ReactCardFlip>
+      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+        <ResumeCard card={this.resumeCards.meetover} />
+        <ResumeCard card={this.resumeCards.songwars} />
+        <ResumeCard card={this.resumeCards.degrees} />
       </div>
     );
-  }
-}
-
-const styles = {
-  container: {
-    width: 250
-  },
-  card: {
-    border: '1px solid #eeeeee',
-    borderRadius: 3,
-    padding: 15,
-    width: 250
   }
 }
 
