@@ -1,0 +1,11 @@
+.Card {
+  border: '1px solid #eeeeee';
+	border-radius: '3px';
+	padding: '15px';
+  width: '250px';
+}
+
+.App {
+  background-color: #222;
+  height: 150px;
+}
