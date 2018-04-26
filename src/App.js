@@ -10,7 +10,7 @@ class App extends Component {
       text: 'A project about improving a persons networking skills',
       link: 'https://github.com/TomFanella4/meetover',
       image: process.env.PUBLIC_URL + '/img/map.jpg',
-      height: 353,
+      height: 370,
       width: 200
     },
     songwars: {
@@ -19,7 +19,7 @@ class App extends Component {
       text: 'This project encourages people to listen to lesser known songs and compare them to pop songs',
       link: 'https://github.com/TomFanella4/song-wars',
       image: process.env.PUBLIC_URL + '/img/songwars.jpg',
-      height: 192,
+      height: 207,
       width: 400
     },
     degrees: {
@@ -28,14 +28,14 @@ class App extends Component {
       text: 'With this app you can view the friend-of-a-friend list of connections between two musicians',
       link: 'https://github.com/mpace965/degrees-of-separation',
       image: process.env.PUBLIC_URL + '/img/degrees.jpg',
-      height: 192,
+      height: 207,
       width: 400
     },
   }
 
   render() {
     return (
-      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', alignItems: 'center' }}>
         <ResumeCard card={this.resumeCards.meetover} />
         <ResumeCard card={this.resumeCards.songwars} />
         <ResumeCard card={this.resumeCards.degrees} />
