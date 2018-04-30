@@ -33,15 +33,19 @@ class ResumeCard extends Component {
     )
 
     return (
-        <FlipCard
-          flipped={this.state.isFlipped}
-          onMouseOver={() => this.handleToggleFlip()}
-          onMouseOut={() => this.handleToggleFlip()}
-          frontChild={cardFront}
-          backChild={cardBack}
-          height={card.height}
-          width={card.width}
-        />
+      <FlipCard
+        flipped={this.state.isFlipped}
+        onMouseOver={() => this.handleToggleFlip()}
+        onMouseOut={() => this.handleToggleFlip()}
+        frontChild={cardFront}
+        backChild={cardBack}
+        height={card.height}
+        width={card.width}
+        style={{
+          front: { paddingTop: card.frontPadding, paddingBottom: card.frontPadding },
+          back: { paddingTop: card.backPadding, paddingBottom: card.backPadding }
+        }}
+      />
     );
   }
 }

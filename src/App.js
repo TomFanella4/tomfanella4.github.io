@@ -3,17 +3,18 @@ import ResumeCard from './ResumeCard';
 
 class App extends Component {
 
-  resumeCards = {
-    meetover: {
+  resumeCards = [
+    {
       title: 'MeetOver',
       subtitle: 'Connecting Professionals on the Fly',
       text: 'A project about improving a persons networking skills',
       link: 'https://github.com/TomFanella4/meetover',
       image: process.env.PUBLIC_URL + '/img/map.jpg',
       height: 370,
-      width: 200
+      width: 200,
+      backPadding: 65
     },
-    songwars: {
+    {
       title: 'Song Wars',
       subtitle: 'Songs battle for superiority!',
       text: 'This project encourages people to listen to lesser known songs and compare them to pop songs',
@@ -22,7 +23,17 @@ class App extends Component {
       height: 207,
       width: 400
     },
-    degrees: {
+    {
+      title: 'Long Distance Bot',
+      subtitle: 'Relationship Assistance',
+      text: 'Ease the strain of your long distance relationship by setting up a reminder service using Facebook Messenger',
+      link: 'https://github.com/TomFanella4/long-distance',
+      image: process.env.PUBLIC_URL + '/img/long-distance.jpg',
+      height: 320,
+      width: 200,
+      frontPadding: 52
+    },
+    {
       title: 'Degrees of Separation',
       subtitle: 'Get Connected',
       text: 'With this app you can view the friend-of-a-friend list of connections between two musicians',
@@ -31,14 +42,21 @@ class App extends Component {
       height: 207,
       width: 400
     },
-  }
+    {
+      title: 'Purdue Menu',
+      subtitle: 'Dining Court Menu',
+      text: 'View the Purdue dining court menus on your pebble smartwatch',
+      link: 'https://github.com/TomFanella4/Purdue-Menu',
+      image: process.env.PUBLIC_URL + '/img/purdue-menu.jpg',
+      height: 200,
+      width: 350
+    },
+  ]
 
   render() {
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', alignItems: 'center' }}>
-        <ResumeCard card={this.resumeCards.meetover} />
-        <ResumeCard card={this.resumeCards.songwars} />
-        <ResumeCard card={this.resumeCards.degrees} />
+        {this.resumeCards.map(card => <ResumeCard key={card.title} card={card} />)}
       </div>
     );
   }
