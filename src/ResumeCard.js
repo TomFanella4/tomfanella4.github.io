@@ -28,6 +28,7 @@ class ResumeCard extends Component {
           <CardSubtitle>{card.subtitle}</CardSubtitle>
           <CardText>{card.text}</CardText>
           <CardLink href={card.link} target='_blank'>View on Github</CardLink>
+          {card.demoLink && <CardLink href={card.demoLink} target='_blank'>Demo</CardLink>}
         </CardBody>
       </Card>
     )

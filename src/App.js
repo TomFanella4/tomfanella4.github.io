@@ -24,6 +24,25 @@ class App extends Component {
       width: 400
     },
     {
+      title: 'Degrees of Separation',
+      subtitle: 'Get Connected',
+      text: 'With this app you can view the friend-of-a-friend list of connections between two musicians',
+      link: 'https://github.com/mpace965/degrees-of-separation',
+      image: process.env.PUBLIC_URL + '/img/degrees.jpg',
+      height: 207,
+      width: 400
+    },
+    {
+      title: 'React Trello',
+      subtitle: 'A React Trello clone',
+      text: 'A React clone of the collaborative task management tool Trello',
+      link: 'https://github.com/TomFanella4/trello-react',
+      demoLink: 'https://trello-react-fanella.herokuapp.com',
+      image: process.env.PUBLIC_URL + '/img/trello-board.png',
+      height: 207,
+      width: 400
+    },
+    {
       title: 'Long Distance Bot',
       subtitle: 'Relationship Assistance',
       text: 'Ease the strain of your long distance relationship by setting up a reminder service using Facebook Messenger',
@@ -32,15 +51,6 @@ class App extends Component {
       height: 320,
       width: 200,
       frontPadding: 52
-    },
-    {
-      title: 'Degrees of Separation',
-      subtitle: 'Get Connected',
-      text: 'With this app you can view the friend-of-a-friend list of connections between two musicians',
-      link: 'https://github.com/mpace965/degrees-of-separation',
-      image: process.env.PUBLIC_URL + '/img/degrees.jpg',
-      height: 207,
-      width: 400
     },
     {
       title: 'Purdue Menu',
