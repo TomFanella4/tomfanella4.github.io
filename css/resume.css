@@ -99,6 +99,9 @@ h2 {
   #sideNav .navbar-collapse .navbar-nav .nav-item {
     display: block;
   }
+  #sideNav .navbar-collapse .navbar-nav .nav-item .main-link {
+    text-decoration: underline;
+  }
   #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
     display: block;
   }
