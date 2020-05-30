@@ -12,7 +12,6 @@ class App extends Component {
       image: process.env.PUBLIC_URL + '/img/map.jpg',
       height: 370,
       width: 200,
-      backPadding: 65
     },
     {
       title: 'Song Wars',
@@ -39,7 +38,7 @@ class App extends Component {
       link: 'https://github.com/TomFanella4/trello-react',
       demoLink: 'https://trello-react-fanella.herokuapp.com',
       image: process.env.PUBLIC_URL + '/img/trello-board.png',
-      height: 207,
+      height: 192,
       width: 400
     },
     {
@@ -48,9 +47,8 @@ class App extends Component {
       text: 'Ease the strain of your long distance relationship by setting up this reminder service using Facebook Messenger',
       link: 'https://github.com/TomFanella4/long-distance',
       image: process.env.PUBLIC_URL + '/img/long-distance.jpg',
-      height: 320,
+      height: 200,
       width: 200,
-      frontPadding: 52
     },
     {
       title: 'Purdue Menu',

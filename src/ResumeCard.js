@@ -7,6 +7,8 @@ class ResumeCard extends Component {
   state = {
     isFlipped: false
   }
+  additionalHeight = /* padding */ 40 + /* margin */ 40 + /* text */ 20 + /* boarder */ 1
+  additionalWidth = /* padding */ 40 + /* margin */ 20 + /* boarder */ 1
 
   handleToggleFlip() {
     this.setState({ isFlipped: !this.state.isFlipped });
@@ -16,13 +18,14 @@ class ResumeCard extends Component {
     const { card } = this.props;
 
     const cardFront = (
-      <Card>
+      <Card style={{ padding: 20, margin: "20px 10px 20px 10px" }}>
+        <CardTitle>{card.title}</CardTitle>
         <CardImg src={card.image} />
       </Card>
     )
 
     const cardBack = (
-      <Card>
+      <Card style={{ alignSelf: "center" }}>
         <CardBody>
           <CardTitle>{card.title}</CardTitle>
           <CardSubtitle>{card.subtitle}</CardSubtitle>
@@ -40,12 +43,9 @@ class ResumeCard extends Component {
         onMouseOut={() => this.handleToggleFlip()}
         frontChild={cardFront}
         backChild={cardBack}
-        height={card.height}
-        width={card.width}
-        style={{
-          front: { paddingTop: card.frontPadding, paddingBottom: card.frontPadding },
-          back: { paddingTop: card.backPadding, paddingBottom: card.backPadding }
-        }}
+        height={card.height + this.additionalHeight}
+        width={card.width + this.additionalWidth}
+        style={{ back: { display: "grid" } }}
       />
     );
   }
