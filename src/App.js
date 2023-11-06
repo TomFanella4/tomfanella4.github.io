@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ResumeCard from './ResumeCard';
+import { ResumeCard } from './ResumeCard';
 
 class App extends Component {
 

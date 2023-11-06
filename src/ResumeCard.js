@@ -1,54 +1,41 @@
-import React, { Component } from 'react';
-import { FlipCard } from 'react-flop-card';
+import React, { useState } from 'react';
+import ReactCardFlip from 'react-card-flip';
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, CardLink } from 'reactstrap';
 
-class ResumeCard extends Component {
-  state = {
-    isFlipped: false
-  }
-  additionalHeight = /* padding */ 40 + /* margin */ 40 + /* text */ 20 + /* boarder */ 1
-  additionalWidth = /* padding */ 40 + /* margin */ 20 + /* boarder */ 1
+const ADDITIONAL_HEIGHT = /* padding */ 20 + /* margin */ 20 + /* text */ 20 + /* boarder */ 1
+const ADDITIONAL_WIDTH = /* padding */ 20 + /* margin */ 20 + /* boarder */ 1
 
-  handleToggleFlip() {
-    this.setState({ isFlipped: !this.state.isFlipped });
-  }
+const CardFront = ({ card }) => (
+  <Card style={{ height: card.height + ADDITIONAL_HEIGHT, width: card.width + ADDITIONAL_WIDTH }}>
+    <CardBody>
+      <CardTitle tag="h5">{card.title}</CardTitle>
+      <CardImg src={card.image} style={{ maxHeight: card.height, maxWidth: card.width, width: 'auto' }} />
+    </CardBody>
+  </Card>
+);
 
-  render() {
-    const { card } = this.props;
+const CardBack = ({ card }) => (
+  <Card style={{ height: card.height + ADDITIONAL_HEIGHT, width: card.width + ADDITIONAL_WIDTH }}>
+    <CardBody>
+      <CardTitle tag="h5">{card.title}</CardTitle>
+      <CardSubtitle tag="h6">{card.subtitle}</CardSubtitle>
+      <CardText>{card.text}</CardText>
+      <CardLink href={card.link} target='_blank'>View on Github</CardLink>
+      {card.demoLink && <CardLink href={card.demoLink} target='_blank'>Demo</CardLink>}
+    </CardBody>
+  </Card>
+);
 
-    const cardFront = (
-      <Card style={{ padding: 20, margin: "20px 10px 20px 10px" }}>
-        <CardTitle>{card.title}</CardTitle>
-        <CardImg src={card.image} />
-      </Card>
-    )
+export const ResumeCard = ({ card }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
 
-    const cardBack = (
-      <Card style={{ alignSelf: "center" }}>
-        <CardBody>
-          <CardTitle>{card.title}</CardTitle>
-          <CardSubtitle>{card.subtitle}</CardSubtitle>
-          <CardText>{card.text}</CardText>
-          <CardLink href={card.link} target='_blank'>View on Github</CardLink>
-          {card.demoLink && <CardLink href={card.demoLink} target='_blank'>Demo</CardLink>}
-        </CardBody>
-      </Card>
-    )
-
-    return (
-      <FlipCard
-        flipped={this.state.isFlipped}
-        onMouseOver={() => this.handleToggleFlip()}
-        onMouseOut={() => this.handleToggleFlip()}
-        frontChild={cardFront}
-        backChild={cardBack}
-        height={card.height + this.additionalHeight}
-        width={card.width + this.additionalWidth}
-        style={{ back: { display: "grid" } }}
-      />
-    );
-  }
+  return (
+    <div style={{ margin: 20 }} onMouseEnter={() => setIsFlipped(true)} onMouseLeave={() => setIsFlipped(false)}>
+      <ReactCardFlip isFlipped={isFlipped} >
+        <CardFront card={card} />
+        <CardBack card={card} />
+      </ReactCardFlip>
+    </div>
+  );
 }
-
-export default ResumeCard;

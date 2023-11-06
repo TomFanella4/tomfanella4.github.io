@@ -1,24 +1,39 @@
 {
   "name": "website",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "homepage": "https://tomfanella4.github.io",
   "dependencies": {
-    "bootstrap": "^4.1.0",
-    "gh-pages": "^1.1.0",
-    "prop-types": "^15.6.1",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-flop-card": "^0.3.2",
-    "react-scripts": "1.1.4",
-    "reactstrap": "^5.0.0-beta.3"
+    "bootstrap": "^5.3.2",
+    "gh-pages": "^6.0.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-card-flip": "^1.2.2",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "reactstrap": "^9.2.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   },
   "scripts": {
-    "predeploy": "yarn build",
+    "predeploy": "npm build",
     "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
